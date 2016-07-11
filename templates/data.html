@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>碧水源DEMO</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <link href="../static/css/styles.css" type="text/css" rel="stylesheet"/>
+</head>
+<body scroll="no">
+<div id="base" class="">
+
+      <!-- 背景 -->
+      <div id="u0" class="ax_image">
+        <img id="u0_img" class="img " src="../static/images/u0.jpg"/>
+      </div>
+      <!-- LOGO -->
+      <div id="u2" class="ax_image">
+        <img id="u2_img" class="img " src="../static/images/u2.png"/>
+      </div>
+
+      <!-- TDS值-->
+      <div id="u4" class="ax_h1">
+        <div id="u5" class="text">
+          <p>
+              <span>TDS&nbsp; &nbsp;</span>
+              <span id="tds"></span>
+              <span >mg/L</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- 水量值 -->
+      <div id="u6" class="ax_h1">
+        <div id="u7" class="text">
+          <p>
+              <span>水量&nbsp; &nbsp;</span>
+              <span id="water"></span>
+              <span>L</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- 开关按键 -->
+      <div id="u8" class="ax_image">
+{#        #<img id="u8_img" class="img " src="../static/images/u8.png"/>#}
+          <input type="image" src="../static/images/u8.png" id="status" name="status" value="off" onclick="changestatus()">
+      </div>
+
+      <!-- 数据更新提示 -->
+      <div id="u10" class="ax_text">
+        <div id="u11" class="text">
+          <p><span>数据更新时间：</span>
+              <span id="create_time"></span>
+{#              <span>2016</span><span>年</span><span>6</span><span>月</span><span>25</span><span>日</span><span>12:25:36</span>#}
+          </p>
+        </div>
+      </div>
+    </div>
+</body>
+<script src="/static/js/jquery.min.js"></script>
+<script>
+    function test() {
+            $.ajax(
+                {
+                    url:'{{ url_for('ShowDtaView') }}',
+                    type:'post',
+                    data:"",
+                    success: function (data) {
+                        if(data.success =="ok"){
+                            console.log(data);
+                            $("#tds").html(data["ret"]['tds']);
+                            $("#water").html(data["ret"]['water']);
+                            $("#create_time").html(data["ret"]['create_time']);
+                        }
+                    }
+                }
+        )
+        }
+    setInterval("test()",5000);
+
+    function changestatus() {
+        var status = $("#status").val();
+        var send_status;
+        if (status=="off"){
+            $("#status").val("open");
+            send_status="5A05B2005B";
+            $.ajax({
+                url: '{{ url_for('ChangeStatusView') }}',
+                type: 'post',
+                data: {"send_status":send_status},
+                success: function (data) {
+                    if(data.success =='ok'){
+                    }
+                }
+            });
+        }else {
+            $("#status").val("off");
+            send_status="5A05B2015B";
+            $.ajax({
+                url: '{{ url_for('ChangeStatusView') }}',
+                type: 'post',
+                data: {"send_status":send_status},
+                success: function (data) {
+                    if(data.success =='ok'){
+                    }
+                }
+            });
+        }
+
+
+    }
+</script>
+</html>

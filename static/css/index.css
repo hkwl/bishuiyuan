@@ -1,0 +1,60 @@
+﻿body {
+    background: #f2f2f2;
+    font-family: microsoft yahei, arial, verdana, helvetica, sans-serif
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, input, button, select, textarea {
+    font-family: microsoft yahei, arial, verdana, helvetica, sans-serif
+}
+
+a {
+    color: #4996ab;
+    text-decoration: none;
+}
+
+.main_1000 {
+    max-width: 1000px;
+    padding: 50px 80px 80px;
+    background: #fff;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom: 2px solid #4996ab;
+    border-top: 2px solid #4996ab;
+}
+
+@media (min-width: 1200px) {
+    .main_1000 {
+        width: 1000px;
+    }
+
+    .form-horizontal {
+        width: 560px;
+    }
+}
+
+@media (min-width: 968px) {
+    .main_1000 {
+        width: 90%;
+    }
+}
+
+@media (max-width: 767px) {
+    .main_1000 {
+        padding: 0;
+        padding-right: 0;
+        border-top: none;
+        box-shadow: none;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        background-color: #fff;
+    }
+}
+
+.bg{background:url(/static/img/webwxgetmsgimg) ;background-size:contain}
+
+
+

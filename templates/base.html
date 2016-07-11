@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>碧水源demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/static/css/bootstrap-admin-theme-change-size.css" rel="stylesheet">
+    <link rel="stylesheet" media="screen" href="/static/css/zTreeStyle.css">
+    <link href="/static/css/index.css" rel="stylesheet" media="screen">
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <!--<script >-->
+        <!--function ShowMenu(t) {-->
+            <!--$("#mainmenu a").removeClass('active');-->
+            <!--$(t).attr('class', 'active');-->
+            <!--$("#menusdown a").css('display', 'none');-->
+            <!--$("a[data-id='" + $(t).attr('data-id') + "']").css('display', 'block');-->
+            <!--$("#menusdown").css('overflow-y', 'auto');-->
+        <!--};-->
+        <!--function HideMenu(t){-->
+            <!--if($("#menusdown a:visible").size()>0){-->
+                <!--$("#menusdown").hover(function () {}, function () {-->
+                     <!--ShowMenu($('a[iscurrent]').get(0))-->
+                 <!--});-->
+            <!--}-->
+            <!--else{-->
+                <!--ShowMenu($('a[iscurrent]').get(0));-->
+            <!--}-->
+        <!--}-->
+    <!--</script>-->
+    <style type="text/css">
+        a {
+            text-decoration: none;
+        }
+
+        .navbar-default .navbar-nav > li > a {
+            color: #fff;
+        }
+
+        .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
+            color: #333;
+        }
+
+        .navbar-default .navbar-nav > li > a.active {
+            color: #333;
+            background: #f8f8f8;
+        }
+
+        .nav-son {
+            padding-left: 0;
+            padding-right: 0;
+            background: #f8f8f8;
+            text-align: center;
+        }
+
+        .nav-son .navbar-nav > li {
+            padding: 0 9px;
+        }
+
+        .nav-son .navbar-nav > li > a {
+            padding: 16px 5px;
+            color: #333;
+        }
+
+        .nav-son .navbar-nav > li > a.focus, .nav-son .navbar-nav > li > a:hover {
+            padding: 16px 5px 14px;
+            border-bottom: 2px solid #ff9600;
+        }
+
+        .nav-son .navbar-nav > li > a.active_bor {
+            padding: 16px 5px 14px;
+            border-bottom: 2px solid #ff9600;
+        }
+
+        @media (max-width: 767px) {
+            .navbar-collapse {
+                float: left;
+                width: 70%;
+            }
+
+            .container-fluid > .navbar-collapse, .container-fluid > .navbar-header {
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            .navbar-toggle {
+                margin-right: 0;
+            }
+
+            .nav-son {
+                float: right;
+                width: 30%;
+                margin-right: 0;
+                overflow-x: hidden;
+            }
+        }
+    </style>
+
+    {% block css %}
+    {% endblock %}
+</head>
+<body>
+{% block content %}
+{% endblock %}
+<div id="footer">
+
+</div>
+{% block bodyscript %}
+{% endblock %}
+</body>
+</html>
